@@ -10,7 +10,6 @@ const updateDanceState = (isDancing: boolean) => {
 	dancingClass.value = isDancing ? "animate-bounce" : "animate-none";
 };
 
-console.log(dancingClass);
 </script>
 
 <template>

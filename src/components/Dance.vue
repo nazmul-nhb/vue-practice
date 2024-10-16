@@ -13,24 +13,25 @@ const buttonText = computed(() =>
 
 // Create a computed property for button class
 const buttonClass = computed(() => {
-    const baseClass = "border px-6 py-2 text-xl font-bold rounded-full transition-all duration-500";
-    const colorClass = isDancing.value ? "border-red-900 text-red-900 hover:bg-red-900 hover:text-white" : "border-teal-900 text-teal-900 hover:bg-teal-900 hover:text-white";
-    return `${baseClass} ${colorClass}`;
+	const baseClass =
+		"border px-6 py-2 text-xl font-bold rounded-full transition-all duration-500 hover:text-white";
+	const colorClass = isDancing.value
+		? "border-red-900 text-red-900 hover:bg-red-900"
+		: "border-teal-900 text-teal-900 hover:bg-teal-900";
+	return `${baseClass} ${colorClass}`;
 });
+
 
 // Handle dance button click
 const handleDance = () => {
-	isDancing.value = !isDancing.value; // Toggle dancing state
+    isDancing.value = !isDancing.value; // Toggle dancing state
 	emit("dance", isDancing.value); // Emit the dancing state
 };
 </script>
 
 <template>
 	<div class="w-full flex items-center justify-center">
-		<button
-			@click="handleDance"
-			:class="buttonClass"
-		>
+		<button @click="handleDance" :class="buttonClass">
 			{{ buttonText }}
 		</button>
 	</div>
